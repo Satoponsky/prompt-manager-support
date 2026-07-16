@@ -1,0 +1,149 @@
+:root {
+  color-scheme: light dark;
+  --background: #f3f6fb;
+  --surface: rgba(255, 255, 255, 0.74);
+  --surface-border: rgba(255, 255, 255, 0.88);
+  --text: #162033;
+  --secondary: #5b6678;
+  --accent: #087cff;
+  --accent-hover: #0069da;
+  --divider: rgba(22, 32, 51, 0.10);
+  --shadow: 0 18px 52px rgba(42, 67, 105, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 85% 5%, rgba(38, 190, 255, 0.20), transparent 32rem),
+    radial-gradient(circle at 5% 20%, rgba(63, 118, 255, 0.16), transparent 28rem),
+    var(--background);
+}
+
+a { color: var(--accent); }
+
+.page-shell {
+  width: min(760px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 64px 0 36px;
+}
+
+.card {
+  margin-bottom: 18px;
+  padding: 30px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 36px;
+}
+
+.app-icon {
+  display: grid;
+  flex: 0 0 94px;
+  width: 94px;
+  height: 94px;
+  place-items: center;
+  color: white;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -5px;
+  background: linear-gradient(145deg, #125bd7, #09b8ee);
+  border-radius: 23px;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.55), 0 14px 30px rgba(0,114,255,.25);
+}
+
+.app-icon span { transform: translateX(-2px); }
+
+.eyebrow {
+  margin: 0 0 5px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: .12em;
+}
+
+h1, h2 { letter-spacing: -.025em; }
+h1 { margin: 0; font-size: clamp(34px, 6vw, 48px); line-height: 1.05; }
+h2 { margin: 0 0 12px; font-size: 21px; }
+p { line-height: 1.75; }
+.lead { margin: 10px 0 0; color: var(--secondary); font-size: 17px; }
+.note { margin: 17px 0 0; color: var(--secondary); font-size: 13px; }
+
+.primary-button {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 11px 18px;
+  color: white;
+  font-weight: 650;
+  text-decoration: none;
+  background: var(--accent);
+  border-radius: 12px;
+  transition: background .15s ease, transform .15s ease;
+}
+
+.primary-button:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+.faq-list { border-top: 1px solid var(--divider); }
+details { padding: 17px 0; border-bottom: 1px solid var(--divider); }
+summary { cursor: pointer; font-weight: 650; }
+details p { margin: 10px 0 0; color: var(--secondary); }
+code { padding: 2px 6px; font-family: "SF Mono", Menlo, monospace; background: var(--divider); border-radius: 6px; }
+.compact-card p { margin-bottom: 0; }
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 22px 0 4px;
+  color: var(--secondary);
+  font-size: 13px;
+}
+
+footer a, .back-link a, .text-link { color: var(--accent); text-decoration: none; }
+footer a:hover, .back-link a:hover, .text-link:hover { text-decoration: underline; }
+.back-link { margin-bottom: 18px; }
+.policy-page { max-width: 820px; }
+.policy-card { padding: clamp(28px, 6vw, 52px); }
+.policy-card h1 { margin-bottom: 10px; }
+.policy-card section { margin-top: 34px; }
+.updated { margin: 0; color: var(--secondary); font-size: 13px; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0e131b;
+    --surface: rgba(27, 35, 47, 0.76);
+    --surface-border: rgba(255, 255, 255, 0.10);
+    --text: #f3f6fb;
+    --secondary: #aab4c3;
+    --accent: #40a0ff;
+    --accent-hover: #198cff;
+    --divider: rgba(255, 255, 255, 0.10);
+    --shadow: 0 20px 58px rgba(0, 0, 0, 0.28);
+  }
+}
+
+@media (max-width: 580px) {
+  .page-shell { padding-top: 24px; }
+  .card { padding: 22px; border-radius: 19px; }
+  .hero { align-items: flex-start; gap: 17px; }
+  .app-icon { flex-basis: 68px; width: 68px; height: 68px; border-radius: 17px; font-size: 25px; }
+  footer { flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary-button { transition: none; }
+}
